@@ -18,5 +18,5 @@ def test_no_search_results(maximize_browser_window):
     browser.open('https://google.com')
     random_string = 'E81RvIDd2KZrdsYQrwDRLsgbzVUOQy8naI9arDgwiijXiy1iX6'
     browser.element('[name="q"]').should(be.blank).type(random_string).press_enter()
-    browser.element('[id="topstuff"]').should(have.text(f'По запросу {random_string} ничего не найдено.'))
+    browser.element('#result-stats').should(have.text(f'Результатов: примерно 0'))
     print('При поиске по произвольной строке ничего не находится')
